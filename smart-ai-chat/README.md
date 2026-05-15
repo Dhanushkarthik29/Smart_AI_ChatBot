@@ -7,11 +7,7 @@ Developer: Dhanush Krishna K
 ## Project Structure
 
 ```
-smart-ai-chat/
-├── index.html   ← HTML structure (layout, chat area, input)
-├── style.css    ← All CSS (design tokens, layout, animations)
-├── app.js       ← All JavaScript (state, logic, AI API call)
-└── README.md    ← This file
+smart-ai-chat/ │ ├── FrontEnd/ │ ├── index.html ← HTML structure (layout, chat area, input) │ ├── style.css ← All CSS (design tokens, layout, animations) │ └── app.js ← Frontend logic, UI rendering, API requests │ ├── BackEnd/ │ ├── main.py ← FastAPI backend server │ ├── requirements.txt ← Python dependencies │ └── .env ← Groq API key (excluded from GitHub) │ ├── .gitignore └── README.md
 ```
 
 ---
@@ -38,10 +34,31 @@ smart-ai-chat/
 3. Start chatting!
 
 ### Method 2 — VS Code Live Server
-1. Open the `smart-ai-chat` folder in VS Code
-2. Install the **Live Server** extension (if not already installed)
-3. Right-click `index.html` → **Open with Live Server**
-4. App opens at `http://127.0.0.1:5500`
+
+**Frontend Setup**
+1. Open the smart-ai-chat folder in VS Code
+2. Install the Live Server extension (if not already installed)
+3. Right-click FrontEnd/index.html → Open with Live Server
+4. Frontend runs at:
+  http://127.0.0.1:5500
+
+**Backend Setup**
+1. Open a new VS Code terminal
+2. Navigate to backend folder:
+    cd BackEnd
+3. Install dependencies:
+    pip install -r requirements.txt
+4. Start FastAPI server:
+  python -m uvicorn main:app --reload
+5. Backend API runs at:
+  http://127.0.0.1:8000
+  
+**Final Architecture**
+Frontend (Port 5500)
+        ↓
+FastAPI Backend (Port 8000)
+        ↓
+Groq LLM API
 
 ---
 
@@ -61,6 +78,10 @@ smart-ai-chat/
 - **CSS3** — custom properties, flexbox, animations
 - **Vanilla JavaScript** — no frameworks, no dependencies
 - **Anthropic Claude API** — `claude-sonnet-4-20250514` model
+- **Python** — backend API development and secure server-side processing
+- **FastAPI** — lightweight Python backend framework for REST APIs
+- **Groq API** — high-speed LLM inference using llama-3.3-70b-versatile
+- **Anthropic Claude API** — claude-sonnet-4-20250514 model (initial implementation)
 
 ---
 
@@ -83,3 +104,10 @@ smart-ai-chat/
 - `sendMessage()` — main decision tree (greeting → farewell → cache → API)
 - `callAI()` — Anthropic API call with full conversation context
 - DOM helpers: `appendMessage()`, `appendTypingIndicator()`
+
+### main.py
+- FastAPI backend server
+- Secure Groq API integration using environment variables
+- Handles POST /chat endpoint
+- Processes conversation history and forwards requests to LLM API
+- Enables CORS for frontend-backend communication
