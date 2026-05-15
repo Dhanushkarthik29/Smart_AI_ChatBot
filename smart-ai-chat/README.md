@@ -7,7 +7,22 @@ Developer: Dhanush Krishna K
 ## Project Structure
 
 ```
-smart-ai-chat/ │ ├── FrontEnd/ │ ├── index.html ← HTML structure (layout, chat area, input) │ ├── style.css ← All CSS (design tokens, layout, animations) │ └── app.js ← Frontend logic, UI rendering, API requests │ ├── BackEnd/ │ ├── main.py ← FastAPI backend server │ ├── requirements.txt ← Python dependencies │ └── .env ← Groq API key (excluded from GitHub) │ ├── .gitignore └── README.md
+smart-ai-chat/
+│
+├── FrontEnd/
+│   ├── index.html        ← HTML structure (layout, chat area, input)
+│   ├── style.css         ← All CSS (design tokens, layout, animations)
+│   └── app.js            ← Frontend logic, UI rendering, API requests
+│
+├── BackEnd/
+│   ├── main.py           ← FastAPI backend server
+│   ├── requirements.txt  ← Python dependencies
+│   └── .env              ← Groq API key (excluded from GitHub)
+│
+├── .gitignore
+└── README.md
+```
+
 ```
 
 ---
