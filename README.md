@@ -4,6 +4,24 @@ Developer: Dhanush Krishna K
 
 ---
 
+## ⚠️ Important — How to Run the Backend
+
+The backend **must** be started from inside the `BackEnd/` folder.
+Running it from anywhere else will fail.
+
+```
+# Step 1 — Open your terminal and navigate into the BackEnd folder
+cd path/to/smart-ai-chat/BackEnd
+
+# Step 2 — Start the server
+python -m uvicorn main:app --reload --port 8000
+```
+
+If you run `python -m uvicorn main:app --reload --port 8000` from the wrong folder,
+Python will throw a "can't open file" or "module not found" error because it can't
+locate main.py. Always `cd` into BackEnd first.
+
+
 ## Project Structure
 
 ```
